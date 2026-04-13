@@ -1,0 +1,241 @@
+task:
+  name: "Shelf Sorting - Multi-Object"
+  description: >
+    여러 물체(파란 컵, 노란 캔)를 각각 지정된 선반 구역에 정렬하세요.
+    물체마다 다른 목표 위치가 있습니다.
+  version: "1.0"
+  workspace:
+    width_cm: 70
+    height_cm: 55
+    origin: "center"
+  robot:
+    base_x_cm: 0
+    base_y_cm: -25
+    base_radius_cm: 5
+
+  object_types:
+    cup:
+      shape: "circle"
+      color: "#3498DB"
+      radius_cm: 3.5
+    can:
+      shape: "circle"
+      color: "#F1C40F"
+      radius_cm: 3.0
+    cup_target:
+      shape: "rectangle"
+      color: "#2980B9"
+      width_cm: 10
+      height_cm: 8
+      style: "dashed"
+    can_target:
+      shape: "rectangle"
+      color: "#D4AC0D"
+      width_cm: 10
+      height_cm: 8
+      style: "dashed"
+    gripper_home:
+      shape: "circle"
+      color: "#9B59B6"
+      radius_cm: 2.5
+
+episodes:
+  - id: 1
+    label: "Episode 1 — 컵 왼쪽, 캔 오른쪽 / 컵→왼쪽선반, 캔→오른쪽선반"
+    objects:
+      - id: "cup_1"
+        type: "cup"
+        x_cm: -8
+        y_cm: 0
+        rotation_deg: 0
+        label: "Blue Cup"
+        description: "왼쪽 (-8cm)"
+      - id: "can_1"
+        type: "can"
+        x_cm: 8
+        y_cm: 0
+        rotation_deg: 0
+        label: "Yellow Can"
+        description: "오른쪽 (+8cm)"
+      - id: "cup_target_1"
+        type: "cup_target"
+        x_cm: -22
+        y_cm: 12
+        rotation_deg: 0
+        label: "Cup Zone"
+        description: "왼쪽 선반 A"
+      - id: "can_target_1"
+        type: "can_target"
+        x_cm: 22
+        y_cm: 12
+        rotation_deg: 0
+        label: "Can Zone"
+        description: "오른쪽 선반 B"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -12
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: "컵 먼저 옮긴 뒤 캔을 옮기세요."
+
+  - id: 2
+    label: "Episode 2 — 컵 앞쪽, 캔 뒤쪽 / 컵→오른쪽, 캔→왼쪽"
+    objects:
+      - id: "cup_1"
+        type: "cup"
+        x_cm: 3
+        y_cm: -6
+        rotation_deg: 0
+        label: "Blue Cup"
+        description: "앞쪽 (y=-6cm)"
+      - id: "can_1"
+        type: "can"
+        x_cm: -3
+        y_cm: 8
+        rotation_deg: 0
+        label: "Yellow Can"
+        description: "뒤쪽 (y=+8cm)"
+      - id: "cup_target_1"
+        type: "cup_target"
+        x_cm: 22
+        y_cm: 10
+        rotation_deg: 0
+        label: "Cup Zone"
+        description: "오른쪽 선반 B"
+      - id: "can_target_1"
+        type: "can_target"
+        x_cm: -22
+        y_cm: 10
+        rotation_deg: 0
+        label: "Can Zone"
+        description: "왼쪽 선반 A"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -12
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 3
+    label: "Episode 3 — 컵&캔 모두 중앙 근처 / 각 지정 선반"
+    objects:
+      - id: "cup_1"
+        type: "cup"
+        x_cm: -4
+        y_cm: 2
+        rotation_deg: 0
+        label: "Blue Cup"
+        description: "중앙 왼쪽"
+      - id: "can_1"
+        type: "can"
+        x_cm: 4
+        y_cm: 2
+        rotation_deg: 0
+        label: "Yellow Can"
+        description: "중앙 오른쪽"
+      - id: "cup_target_1"
+        type: "cup_target"
+        x_cm: -22
+        y_cm: 14
+        rotation_deg: 0
+        label: "Cup Zone"
+        description: "왼쪽 선반 A"
+      - id: "can_target_1"
+        type: "can_target"
+        x_cm: 22
+        y_cm: 14
+        rotation_deg: 0
+        label: "Can Zone"
+        description: "오른쪽 선반 B"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -12
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 4
+    label: "Episode 4 — 컵 오른쪽 뒤, 캔 왼쪽 앞"
+    objects:
+      - id: "cup_1"
+        type: "cup"
+        x_cm: 12
+        y_cm: 7
+        rotation_deg: 0
+        label: "Blue Cup"
+        description: "+12cm, y=+7"
+      - id: "can_1"
+        type: "can"
+        x_cm: -12
+        y_cm: -4
+        rotation_deg: 0
+        label: "Yellow Can"
+        description: "-12cm, y=-4"
+      - id: "cup_target_1"
+        type: "cup_target"
+        x_cm: -22
+        y_cm: 12
+        rotation_deg: 0
+        label: "Cup Zone"
+        description: "왼쪽 선반 A"
+      - id: "can_target_1"
+        type: "can_target"
+        x_cm: 22
+        y_cm: 12
+        rotation_deg: 0
+        label: "Can Zone"
+        description: "오른쪽 선반 B"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -12
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: "물체 간격이 넓으니 이동 경로에 주의하세요."
+
+  - id: 5
+    label: "Episode 5 — 컵&캔 인접, 중앙 선반 두 곳"
+    objects:
+      - id: "cup_1"
+        type: "cup"
+        x_cm: -2
+        y_cm: 5
+        rotation_deg: 0
+        label: "Blue Cup"
+        description: "중앙 근처 (-2, +5)"
+      - id: "can_1"
+        type: "can"
+        x_cm: 5
+        y_cm: 5
+        rotation_deg: 0
+        label: "Yellow Can"
+        description: "중앙 근처 (+5, +5)"
+      - id: "cup_target_1"
+        type: "cup_target"
+        x_cm: -8
+        y_cm: 18
+        rotation_deg: 0
+        label: "Cup Zone"
+        description: "중앙 왼쪽 선반"
+      - id: "can_target_1"
+        type: "can_target"
+        x_cm: 8
+        y_cm: 18
+        rotation_deg: 0
+        label: "Can Zone"
+        description: "중앙 오른쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -12
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""

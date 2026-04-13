@@ -1,0 +1,292 @@
+task:
+  name: "Pick and Place - Box to Shelf"
+  description: >
+    빨간 박스를 테이블에서 집어서 목표 선반 위치에 놓으세요.
+    그리퍼는 홈 포지션(front-center)에서 시작합니다.
+  version: "1.0"
+  workspace:
+    width_cm: 60
+    height_cm: 50
+    origin: "center"
+  robot:
+    base_x_cm: 0
+    base_y_cm: -22
+    base_radius_cm: 5
+
+  object_types:
+    box:
+      shape: "rectangle"
+      color: "#E74C3C"
+      width_cm: 8
+      height_cm: 6
+    shelf_target:
+      shape: "rectangle"
+      color: "#2ECC71"
+      width_cm: 12
+      height_cm: 8
+      style: "dashed"
+    gripper_home:
+      shape: "circle"
+      color: "#9B59B6"
+      radius_cm: 2.5
+
+episodes:
+  - id: 1
+    label: "Episode 1 — 박스 중앙, 왼쪽 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: 5
+        y_cm: 0
+        rotation_deg: 0
+        label: "Red Box"
+        description: "+5cm (오른쪽)"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: -18
+        y_cm: 8
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "왼쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 2
+    label: "Episode 2 — 박스 왼쪽, 오른쪽 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: -8
+        y_cm: 2
+        rotation_deg: 0
+        label: "Red Box"
+        description: "-8cm (왼쪽)"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: 18
+        y_cm: 8
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "오른쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 3
+    label: "Episode 3 — 박스 45° 회전, 중앙 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: 0
+        y_cm: 3
+        rotation_deg: 45
+        label: "Red Box"
+        description: "중앙, 45° 회전"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: 0
+        y_cm: 15
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "중앙 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: "박스 회전 상태를 잘 확인하세요 (45°)"
+
+  - id: 4
+    label: "Episode 4 — 박스 오른쪽, 왼쪽 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: 12
+        y_cm: -2
+        rotation_deg: 0
+        label: "Red Box"
+        description: "+12cm (오른쪽)"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: -18
+        y_cm: 10
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "왼쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 5
+    label: "Episode 5 — 박스 앞쪽, 중앙 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: 3
+        y_cm: -5
+        rotation_deg: 0
+        label: "Red Box"
+        description: "앞쪽 (y=-5cm)"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: 0
+        y_cm: 15
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "중앙 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 6
+    label: "Episode 6 — 박스 뒤쪽, 오른쪽 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: -3
+        y_cm: 10
+        rotation_deg: 0
+        label: "Red Box"
+        description: "뒤쪽 (y=+10cm)"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: 18
+        y_cm: 5
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "오른쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 7
+    label: "Episode 7 — 박스 -30° 회전, 왼쪽 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: 5
+        y_cm: 4
+        rotation_deg: -30
+        label: "Red Box"
+        description: "+5cm, -30° 회전"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: -18
+        y_cm: 8
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "왼쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 8
+    label: "Episode 8 — 박스 중앙, 오른쪽 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: 0
+        y_cm: 0
+        rotation_deg: 0
+        label: "Red Box"
+        description: "중앙 (0, 0)"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: 18
+        y_cm: 10
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "오른쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 9
+    label: "Episode 9 — 박스 왼쪽 앞, 중앙 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: -10
+        y_cm: -3
+        rotation_deg: 20
+        label: "Red Box"
+        description: "-10cm, y=-3, 20° 회전"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: 2
+        y_cm: 14
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "중앙 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
+
+  - id: 10
+    label: "Episode 10 — 박스 오른쪽 뒤, 왼쪽 선반"
+    objects:
+      - id: "box_1"
+        type: "box"
+        x_cm: 14
+        y_cm: 8
+        rotation_deg: -15
+        label: "Red Box"
+        description: "+14cm, y=+8, -15° 회전"
+      - id: "target_1"
+        type: "shelf_target"
+        x_cm: -18
+        y_cm: 6
+        rotation_deg: 0
+        label: "Target Shelf"
+        description: "왼쪽 선반"
+      - id: "home_1"
+        type: "gripper_home"
+        x_cm: 0
+        y_cm: -10
+        rotation_deg: 0
+        label: "Home"
+        description: "front center"
+    notes: ""
